@@ -1,2 +1,3 @@
 Project Euler Solutions
-https://projecteuler.net/archives
+
+site: https://projecteuler.net/archives
