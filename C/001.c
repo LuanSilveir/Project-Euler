@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 /* Solution 1 */
 int solution1(void)
@@ -30,11 +31,26 @@ int solution2(void) /* ~ (1000/3 + 1000/5 + 1000/15) = ~ 599 iterations */
 
 int main(void)
 {
-	int result1 = solution1();
-	int result2 = solution2();
+	clock_t start1, end1, start2, end2;
+	int solve1, solve2;
 	
-	printf("Solution 1: %d\n", result1);
-	printf("Solution 2: %d\n", result2);
+	start1 = clock();
+	solve1 = solution1();
+	end1 = clock();
+	
+	start2 = clock();
+	solve2 = solution2();
+	end2 = clock();
+	
+	double time1 = (double) (end1 - start1) / CLOCKS_PER_SEC;
+	double time2 = (double) (end2 - start2) / CLOCKS_PER_SEC;
+	
+	printf("Solution1: %d (%lf s)\n", solve1, time1);
+	
+	printf("Solution2: %d (%lf s)\n", solve2, time2);
+	
+	//printf("Solution 1: %d\n", result1);
+	//printf("Solution 2: %d\n", result2);
 	
 	return 0;
 }
