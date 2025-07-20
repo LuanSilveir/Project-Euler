@@ -4,7 +4,7 @@ Enjoying some problem solving while training my C.
 
 site: <https://projecteuler.net/archives>
 
-| Exercise | C            | Haskell       | Average of    | Ratio Haskell/C |
+| Exercise | C (s)        | Haskell (s)   | Average of    | Ratio Haskell/C |
 | -------- | -----------  | -------       | ------------- | --------------- |
 | 1        | 0.0000061    | 0.00030228325 | 100           | 49.554631147540 |
 | 2        | 0.00000088   | 0.00006793179 | 100           | 77.195215909090 |
