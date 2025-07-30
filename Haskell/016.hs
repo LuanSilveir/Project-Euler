@@ -10,7 +10,10 @@ main = do
   putStrLn ("Execution Time: " ++ (show diffTime))
   --putStrLn $ (reverse.tail.reverse) (show diffTime)
 
-solution :: Int 
-solution = sum [x | x <- [1..999], x `mod` 3 == 0 || x `mod` 5 == 0]
+solution :: Integer
+solution = sumDigits (2^1000)
 
+sumDigits :: Integer -> Integer
+sumDigits 0 = 0
+sumDigits n = (n `mod` 10) + sumDigits (n `div` 10)
 

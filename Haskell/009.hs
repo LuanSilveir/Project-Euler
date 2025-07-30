@@ -11,6 +11,8 @@ main = do
   --putStrLn $ (reverse.tail.reverse) (show diffTime)
 
 solution :: Int 
-solution = sum [x | x <- [1..999], x `mod` 3 == 0 || x `mod` 5 == 0]
+solution = head triplet
 
+triplet :: [Int]
+triplet = [a*b*c | a <- [1..998], b <-[1..998], let c = (1000-a-b), a^2 + b^2 == c^2]
 

@@ -10,7 +10,8 @@ main = do
   putStrLn ("Execution Time: " ++ (show diffTime))
   --putStrLn $ (reverse.tail.reverse) (show diffTime)
 
-solution :: Int 
-solution = sum [x | x <- [1..999], x `mod` 3 == 0 || x `mod` 5 == 0]
+solution :: Int
+solution = sum $ 2:(filter isPrime [3,5..2000000])
 
-
+isPrime :: Int -> Bool
+isPrime n = all (\x -> n `mod` x /= 0) [2..(floor.sqrt.fromIntegral) n + 1]

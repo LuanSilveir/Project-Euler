@@ -10,7 +10,13 @@ main = do
   putStrLn ("Execution Time: " ++ (show diffTime))
   --putStrLn $ (reverse.tail.reverse) (show diffTime)
 
-solution :: Int 
-solution = sum [x | x <- [1..999], x `mod` 3 == 0 || x `mod` 5 == 0]
+solution :: Int
+solution = (squareSum 100) - (sumSquares 100)
+
+sumSquares :: Int -> Int
+sumSquares n = sum [i*i | i <- [1..n]]
+
+squareSum :: Int -> Int
+squareSum n = (sum [1..n])^2
 
 

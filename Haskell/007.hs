@@ -10,7 +10,13 @@ main = do
   putStrLn ("Execution Time: " ++ (show diffTime))
   --putStrLn $ (reverse.tail.reverse) (show diffTime)
 
-solution :: Int 
-solution = sum [x | x <- [1..999], x `mod` 3 == 0 || x `mod` 5 == 0]
+solution :: Int
+solution = (sieve [2..]) !! 10000
 
+removep :: [Int] -> [Int]
+removep []     = []
+removep (l:ls) = filter (\x -> x `mod` l /= 0) ls
 
+sieve :: [Int] -> [Int]
+sieve []     = []
+sieve (x:xs) = x : (sieve $ removep (x:xs)) 

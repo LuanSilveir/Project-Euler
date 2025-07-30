@@ -11,16 +11,20 @@ main = do
   --putStrLn $ (reverse.tail.reverse) (show diffTime)
 
 solution :: Int
-solution = largestPrime (factors 600851475143 2 [])
-
+solution = product (fac 20)
 
 factors :: Int -> Int -> [Int] -> [Int]
 factors 1 _ fs = fs 
 factors n k fs = if n `mod` k == 0 then factors (n `div` k) k (k:fs) else factors n (k+1) fs
-
+ 
 isPrime :: Int -> Bool
 isPrime n = length (factors n 2 []) == 1
 
-largestPrime :: [Int] -> Int
-largestPrime [] = -1
-largestPrime (x:xs) = if isPrime x then x else largestPrime xs
+primes :: Int -> [Int]
+primes n = [p | p <- [2..n], isPrime p]
+
+biggestPower :: Int -> Int -> Int
+biggestPower n k = if k >= n then (round $ sqrt $ fromIntegral k) else biggestPower n (k*k)
+
+fac :: Int -> [Int]
+fac n = map (biggestPower n) (primes n)

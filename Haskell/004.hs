@@ -8,6 +8,7 @@ main = do
   let diffTime = diffUTCTime endTime startTime
   putStrLn ("Solution: " ++ (show result))
   putStrLn ("Execution Time: " ++ (show diffTime))
+  --putStrLn $ (reverse.tail.reverse) (show diffTime)
 
 solution :: Int
 solution = maximum palindromes
